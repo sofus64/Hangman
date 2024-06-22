@@ -37,11 +37,11 @@ namespace Hangman
             string wordString = string.Empty;
             foreach (var letter in _letters)
             {
-                if (!letter._isHidden)
+                if (!letter.IsHidden())
                 {
                     wordString += letter.GetLetter();
                 }
-                else if (letter._isHidden)
+                else if (letter.IsHidden())
                 {
                     wordString += '_';
                 }

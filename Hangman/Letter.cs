@@ -10,7 +10,7 @@ namespace Hangman
     internal class Letter
     {
         private char _value;
-        public bool _isHidden { get; private set; }
+        public bool _isHidden;
 
         public Letter(char value, bool isHidden)
         {
@@ -26,6 +26,11 @@ namespace Hangman
         public char GetLetter()
         {
             return _value;
+        }
+
+        public bool IsHidden()
+        {
+            return _isHidden;
         }
     }
 }

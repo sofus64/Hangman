@@ -17,7 +17,7 @@ namespace Hangman
 
         public bool IsRevealed()
         {
-            bool allRevealed = _letters.All(letter => !letter._isHidden);
+            bool allRevealed = _letters.All(letter => !letter.IsHidden());
             return allRevealed;
         }
     }
