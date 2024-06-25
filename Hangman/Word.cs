@@ -10,7 +10,7 @@ namespace Hangman
     {
         protected string _value;
         protected Letter[] _letters;
-        protected bool _isHidden;
+        protected bool _isHidden = true;
 
         public Word(string value)
         {
@@ -25,11 +25,6 @@ namespace Hangman
                 letterList[i] = new Letter(word[i], isHidden);
             }
             return letterList;
-        }
-
-        public string GetValue()
-        { 
-            return _value;
         }
 
         public string TypeWord()
@@ -47,6 +42,27 @@ namespace Hangman
                 }
             }
             return wordString;
+        }
+        public bool IsRevealed()
+        {
+            var allLettersRevealed = _letters.All(letter => !letter.IsHidden());
+            return allLettersRevealed;
+        }
+
+        public void CheckForLetter(char character)
+        {
+            foreach (var letter in _letters)
+            {
+                if (letter.GetLetter() == character)
+                {
+                    letter._isHidden = false;
+                }
+            }
+        }
+
+        public string GetValue()
+        {
+            return _value;
         }
     }
 
