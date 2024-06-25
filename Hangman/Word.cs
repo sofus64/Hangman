@@ -55,7 +55,7 @@ namespace Hangman
             {
                 if (letter.GetLetter() == character)
                 {
-                    letter._isHidden = false;
+                    letter.RevealLetter();
                 }
             }
         }
