@@ -13,6 +13,7 @@ namespace Hangman
         public int _attempts { get; private set; }
         public int MaxAttempts = 12;
         public List<char> _guessedIncorrectLetters = new();
+        public List<char> _guessedLetters = new();
 
         public bool UsedAllAttempts()
         {
@@ -67,6 +68,7 @@ namespace Hangman
                     }
                     takingInput = false;
                     _attempts = _guessedIncorrectLetters.Count;
+                    _guessedLetters.Add(lowerCaseChar);
                 }
             }
         }

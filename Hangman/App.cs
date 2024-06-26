@@ -19,7 +19,7 @@ namespace Hangman
                 Console.WriteLine($"forsøk brukt: {game.GetAttempts()}");
                 Console.WriteLine($"ord: {game._word.TypeWord()}");
                 Console.WriteLine($"feil: {game.getIncorrectAttempts()} av {game.MaxAttempts}");
-                Console.WriteLine(string.Join(", ", game._guessedIncorrectLetters));
+                Console.WriteLine("gjettede ord: " + string.Join(", ", game._guessedLetters));
                 man.draw(game._guessedIncorrectLetters.Count);
                 game.GuessLetter();
                 Console.Clear();
