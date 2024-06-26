@@ -12,12 +12,15 @@ namespace Hangman
         {
             var myConsole = new MyConsole();
             Game game = new();
-
+            var man = new Man();
             game.SetWord(myConsole.ChooseDifficulty());
             while (!game.UsedAllAttempts() && !game.WordIsGuessed())
             {
                 Console.WriteLine($"forsøk brukt: {game.GetAttempts()}");
                 Console.WriteLine($"ord: {game._word.TypeWord()}");
+                Console.WriteLine($"feil: {game.getIncorrectAttempts()} av {game.MaxAttempts}");
+                Console.WriteLine(string.Join(", ", game._guessedIncorrectLetters));
+                man.draw(game._guessedIncorrectLetters.Count);
                 game.GuessLetter();
                 Console.Clear();
             }

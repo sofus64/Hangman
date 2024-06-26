@@ -10,9 +10,9 @@ namespace Hangman
     internal class Game
     {
         public Word _word { get; set; }
-        private int _attempts;
-        private const int MaxAttempts = 10;
-        private List<char> _guessedIncorrectLetters = new();
+        public int _attempts { get; private set; }
+        public int MaxAttempts = 12;
+        public List<char> _guessedIncorrectLetters = new();
 
         public bool UsedAllAttempts()
         {
@@ -43,6 +43,11 @@ namespace Hangman
         public int GetAttempts()
         {
             return _attempts;
+        }
+
+        public int getIncorrectAttempts()
+        {
+            return _guessedIncorrectLetters.Count;
         }
 
         public void GuessLetter()
